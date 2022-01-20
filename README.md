@@ -1,4 +1,4 @@
-# vue2teste
+# bodega-menu-front
 
 ## Project setup
 ```
