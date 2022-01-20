@@ -1,4 +1,4 @@
-# bodega-menu-front
+# bodega-menu-fron
 
 ## Project setup
 ```
