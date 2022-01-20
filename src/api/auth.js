@@ -1,14 +1,14 @@
-import Ajax from '@/api/ajax.js'
 import { apiAuth } from '@/const.js'
+import { AjaxAdmin } from './ajax-admin'
 
 export default {
   loginStatus(success, failure) {
-    Ajax.post(apiAuth.LoginStatus, {}, success, failure)
+    AjaxAdmin.get(apiAuth.LoginStatus, {}, success, failure)
   },
   login(data, success, failure) {
-    Ajax.post(apiAuth.Login, data, success, failure)
+    AjaxAdmin.post(apiAuth.Login, data, success, failure)
   },
   logout(success) {
-    Ajax.post(apiAuth.Logout, {}, success, () => false)
+    AjaxAdmin.post(apiAuth.Logout, {}, success, () => false)
   }
 }

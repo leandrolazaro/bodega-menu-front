@@ -1,11 +1,14 @@
 export const AppInfo = {
-    AppName: "vuejs-webapp-sample",
+    AppName: "bodega-menu-front",
     AppDeveloper: "ybkuroki",
-    GithubLink: "https://github.com/ybkuroki/vuejs-webapp-sample"
+    GithubLink: "https://github.com/leandrolazaro/bodega-menu-front.git"
   };
   
+  // const api = "https://bodegalojadevinhos.com.br/menu-rest-api/public/index.php"
   const api = "http://localhost:8888"
   const apiAuthBase = api + "/auth"
+  const apiAdminBase = api + "/admin"
+  const apiMenuBase = api + "/menu"
   
   export const apiAuth = {
     LoginStatus: apiAuthBase + "/loginStatus",
@@ -16,6 +19,20 @@ export const AppInfo = {
 
 
   export const apiCategory = {
-    getCategories: api + "/categories",
-    setCategory: api + "/category/create",
+    getCategories: apiAdminBase+ "/categories",
+    setCategory: apiAdminBase+ "/category/create",
+    delCategory: apiAdminBase+ "/category/delete",
+    editCategory: apiAdminBase+ "/category/edit"
+  }
+
+  export const apiItem = {
+    setItem: apiAdminBase+ "/category/item/create",
+    getItens: apiAdminBase+ "/category/item/search",
+    delItem: apiAdminBase+ "/category/item/delete",
+    editItem: apiAdminBase+ "/category/item/edit",
+  }
+
+  export const apiMenu={
+    getItens: apiMenuBase+ "/itens",
+    getCategories: apiMenuBase+ "/categories",
   }

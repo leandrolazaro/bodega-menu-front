@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
 import store from '@/store/index.js'
 // import store from '@/store/index.js';
 
@@ -9,8 +9,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Menu',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "menu" */ '../views/Menu.vue'),
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: '',
+        component: () => import(/* webpackChunkName: "menu" */ '../views/HomeMenu.vue')
+      },
+    ]
+    
   },
   {
     path: '/login',
@@ -34,13 +46,19 @@ const routes = [
         // UserProfile will be rendered inside User's <router-view>
         // when /user/:id/profile is matched
         path: '',
-        component: () => import('../views/HomeAdmin.vue')
+        component: () => import(/* webpackChunkName: "admin" */ '../views/HomeAdmin.vue')
       },
       {
         // UserProfile will be rendered inside User's <router-view>
         // when /user/:id/profile is matched
         path: 'categorias',
-        component: () => import('../views/CategoriasAdmin.vue')
+        component: () => import(/* webpackChunkName: "admin" */ '../views/CategoriasAdmin.vue')
+      },
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'itens',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/ItensAdmin.vue')
       }
     ]
   }

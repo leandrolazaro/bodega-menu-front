@@ -1,6 +1,5 @@
 <template>
   <div class="LoginForm">
-    <b-overlay :show="overlay" rounded="sm">
       <div class="text-center">
         <h4>Login Admin</h4>
       </div>
@@ -35,7 +34,6 @@
       <!-- <b-card class="mt-3" header="Form Data Result">
         <pre class="m-0">{{ form }}</pre>
       </b-card> -->
-    </b-overlay>
   </div>
 </template>
 
@@ -57,18 +55,17 @@ export default {
       form: {
         cpf: "",
         password: "",
-      },
-      overlay: false,
+      }
     };
   },
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      this.overlay = true;
+      this.$store.dispatch("showLoading");
       Api.login(
         { cpf: this.form.cpf, password: this.form.password },
         (body) => {
-          this.overlay = false;
+          this.$store.dispatch("closeLoading");
           if (body.error == 0) {
             this.$store.dispatch("login", body.data).then(() => this.$router.push('/admin/'));
           } else {
@@ -91,7 +88,6 @@ export default {
 .LoginForm {
   padding: 10px;
   background-color: white;
-  width: 25%;
   border-radius: 2%;
 }
 

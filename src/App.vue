@@ -1,5 +1,8 @@
 <template>
+
   <div id="app" class="h-100 ">
+     <b-overlay :z-index="10000000000000000" :show="this.$store.getters.getLoading" no-wrap>
+      </b-overlay>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -14,10 +17,20 @@
 
 export default {
   name: 'App',
+  created:function(){
+    
+  }
 }
 </script>
 
 <style>
+
+@font-face {
+  font-family: "Gagalin";
+  src: local("Gagalin"),
+   url(fonts/Gagalin-Regular.ttf) format("truetype");
+}
+
 html, body {
 height: 100%;
 font-size: 20px;
@@ -28,7 +41,7 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center;  */

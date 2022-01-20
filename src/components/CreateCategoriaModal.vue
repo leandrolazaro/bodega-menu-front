@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-modal ref="modaldoido" id="modal-1" title="Nova Categoria" hide-footer>
+    <b-modal ref="modalCreateCategory" id="modalCreateCategory" title="Nova Categoria" hide-footer>
       <div>
         <b-form @submit="onSubmit">
           <b-form-group
@@ -48,18 +48,20 @@ export default {
   },
   methods: {
     onSubmit(event) {
+      this.$store.dispatch("showLoading");
       event.preventDefault();
-      alert(JSON.stringify(this.getToken));
       Api.setCategory(
         {token: this.getToken, category_name: this.form.category_name},
-        (body) => {
-          alert(JSON.stringify(body))
-        },
         () => {
-          alert("Error");
+          this.$store.dispatch("closeLoading");
+          this.$store.dispatch("showSucessMessage").then(() => {});
+          this.$emit('reload');
+        },
+        (err) => {
+          alert(JSON.stringify(err));
         }
       );
-      this.$refs["modaldoido"].hide();
+      this.$refs["modalCreateCategory"].hide();
     },
   },
 };
