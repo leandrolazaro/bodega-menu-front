@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store/index.js'
-import router from '../router';
+// import router from '../router';
 
 let axiosAdmin = axios.create();
 
@@ -15,10 +15,10 @@ axiosAdmin.interceptors.request.use(function (config) {
 });
 
 axiosAdmin.interceptors.response.use(function (response) {
-  if(!response.data.token){
-    store.dispatch("logout").then(() => router.push('/login'));
-  }
-  store.dispatch('changeToken', response.data.token);
+  // if(!response.data.token){
+  //   store.dispatch("logout").then(() => router.push('/login'));
+  // }
+  // store.dispatch('changeToken', response.data.token);
   return response;
 }, function (error) {
   return Promise.reject(error);

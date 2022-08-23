@@ -33,6 +33,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
+    path: '/admin/login',
+    name: 'LoginAdmin',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  },
+  {
     path: '/admin',
     name: 'HomeAdmin',
     // route level code-splitting
@@ -59,6 +67,12 @@ const routes = [
         // when /user/:id/profile is matched
         path: 'itens',
         component: () => import(/* webpackChunkName: "admin" */ '../views/ItensAdmin.vue')
+      },
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'vinhos',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/WinesAdmin.vue')
       }
     ]
   }

@@ -10,6 +10,7 @@
           <b-nav-item href="#" to="/admin">Home</b-nav-item>
           <b-nav-item href="#" to="/admin/categorias">Categorias</b-nav-item>
           <b-nav-item href="#" to="/admin/itens">Itens</b-nav-item>
+          <b-nav-item href="#" to="/admin/vinhos">Vinhos</b-nav-item>
           <b-nav-item href="#" disabled>Banners</b-nav-item>
           <b-nav-item href="#" disabled>Destaques</b-nav-item>
           <b-nav-item href="#" disabled>Promoções</b-nav-item>

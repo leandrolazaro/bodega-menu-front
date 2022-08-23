@@ -36,3 +36,15 @@ export const AppInfo = {
     getItens: apiMenuBase+ "/itens",
     getCategories: apiMenuBase+ "/categories",
   }
+
+  export const apiWineCategories={
+    getWineTypes: apiAdminBase+ "/wine/types",
+    getWineGrapes: apiAdminBase+ "/wine/grapes",
+    getWineCountries: apiAdminBase+ "/wine/countries",
+  }
+
+  export const apiWine={
+    setWine: apiAdminBase+ "/wine/create",
+    getWineGrapes: apiAdminBase+ "/wine/grapes",
+    getWineCountries: apiAdminBase+ "/wine/countries",
+  }
