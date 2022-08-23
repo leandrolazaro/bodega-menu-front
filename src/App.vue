@@ -1,7 +1,7 @@
 <template>
 
   <div id="app" class="h-100 ">
-     <b-overlay :z-index="10000000000000000" :show="this.$store.getters.getLoading" no-wrap>
+     <b-overlay :z-index="1000000000000000" :show="this.$store.getters.getLoading" no-wrap>
       </b-overlay>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
